@@ -1,0 +1,30 @@
+# Project: Projeto1
+# Makefile created by Dev-C++ 5.0.0.4
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 
+OBJ      = main.o $(RES)
+LINKOBJ  = main.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/lib" -L"C:/Program Files (x86)/Dev-Cpp/lib/gcc" -static-libstdc++ -static-libgcc -L"C:/Users/uniffsanto/Documents/Chaleira/freeglut/lib" -lfreeglut -lglu32 -lopengl32  
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/include"  -I"C:/Users/uniffsanto/Documents/Chaleira/freeglut/include" 
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/include"  -I"C:/Users/uniffsanto/Documents/Chaleira/freeglut/include" 
+BIN      = ATV5.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ATV5.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "ATV5.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
